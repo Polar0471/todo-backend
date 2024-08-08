@@ -4,13 +4,14 @@ export const getAllTodos = async () => {
     return prisma.todo.findMany()
 }
 
-export const createTodo = async (title: string) => {
+export const createTodo = async (title: string, description: string) => {
     return prisma.todo.create({
         data: {
-            title
-        }
-    })
-}
+            title,
+            description,  
+        },
+    });
+};
 
 export const updateTodo = async (id: number, completed: boolean) => {
     return prisma.todo.update({

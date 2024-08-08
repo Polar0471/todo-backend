@@ -4,8 +4,8 @@ export const listTodos = async () => {
     return todoModel.getAllTodos()
 }
 
-export const addTodo = async (title: string) => {
-    return todoModel.createTodo(title)
+export const addTodo = async (title: string, description: string) => {
+    return todoModel.createTodo(title, description)
 }
 
 export const completeTodo = async (id: number) => {

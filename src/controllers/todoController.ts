@@ -15,10 +15,10 @@ export const getTodos = async (req: Request, res: Response) => {
 }
   
 export const createTodo = async (req: Request, res: Response) => {
-    const { title } = req.body
+    const { title, description } = req.body
     let httpResponse = null
     try {
-        const newTodo = await todoService.addTodo(title)
+        const newTodo = await todoService.addTodo(title, description)
         httpResponse = HttpResponse.created(newTodo)
         res.status((await httpResponse).statusCode).json((await httpResponse).body)
     } catch (error) {
